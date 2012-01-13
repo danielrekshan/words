@@ -70,6 +70,12 @@ module Words
 
 	end
 
+	def synset(synset)
+
+	    raise NoWordnetConnection, "There is presently no connection to wordnet. To attempt to reistablish a connection you should use the 'open!' command on the Wordnet object." unless connected?
+	    @wordnet_connection.synset(synset)
+
+	end
 	# Returns the type of the current wordnet connection.
 	#
 	# @return [Symbol] The current wordnet connection type. Currently supported :pure & :tokyo.
