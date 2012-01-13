@@ -73,8 +73,7 @@ module Words
 	def synset(synset)
 
 	    raise NoWordnetConnection, "There is presently no connection to wordnet. To attempt to reistablish a connection you should use the 'open!' command on the Wordnet object." unless connected?
-	    @wordnet_connection.synset(synset)
-
+	    Synset.new(synset, @wordnet_connection, nil) unless synset.nil?
 	end
 	# Returns the type of the current wordnet connection.
 	#
